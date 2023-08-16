@@ -6,8 +6,12 @@ export class ResponseData<T> {
 
   constructor(statusCode: number, message: string);
   constructor(data: T | T[], statusCode: number, message: string);
-  constructor(dataOrStatusCode: T | T[] | number, statusCodeOrMessage: number | string, message?: string) {
-    if (typeof dataOrStatusCode === "number") {
+  constructor(
+    dataOrStatusCode: T | T[] | number,
+    statusCodeOrMessage: number | string,
+    message?: string,
+  ) {
+    if (typeof dataOrStatusCode === 'number') {
       // The first constructor was used.
       this.statusCode = dataOrStatusCode as number;
       this.message = statusCodeOrMessage as string;
@@ -17,7 +21,7 @@ export class ResponseData<T> {
       this.statusCode = statusCodeOrMessage as number;
       this.message = message as string;
     }
-    
+
     return this;
   }
 }

@@ -9,12 +9,12 @@ export class PostController {
 
   @Get()
   getAllPost() {
-    return this.postService.getAllPost();
+    return this.postService.getAllPosts();
   }
 
   @Get(':id')
   getPostById(@Param('id') id: string) {
-    return this.postService.getPostById(Number(id));
+    return this.postService.getPostById(id);
   }
 
   @Post()
@@ -24,11 +24,11 @@ export class PostController {
 
   @Put(':id')
   async updatePost(@Param('id') id: string, @Body() post: UpdatePostDto) {
-    return this.postService.updatePost(Number(id), post);
+    return this.postService.updatePost(id, post);
   }
 
   @Delete(':id')
   async deletePost(@Param('id') id: string) {
-    return this.postService.deletePost(Number(id));
+    return this.postService.deletePost(id);
   }
 }
